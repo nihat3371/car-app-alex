@@ -5,10 +5,11 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-
-
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 const App = () => {
-  const [car, setCars] = useState([])
+  const [cars, setCars] = useState([])
+
+
 
   const getCarData = async () => {
     try {
@@ -21,39 +22,42 @@ const App = () => {
     }
   }
 
+
   useEffect(() => {
     getCarData()
   }, [])
 
+
+
+
   return (
 
     <div className="App">
-      {car.map(car => {
-        return <></>
-      })}
-      <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+
+      <List>
+        {cars.map((car) => {
+          console.log(car)
+          return (
+            <ListItem disablePadding key={car.vin}>
+              <ListItemButton >
+                <ListItemText primary={car.model_variant} />
+              </ListItemButton>
+            </ListItem>
+          )
+        })}
+      </List>
+
+
+
+      <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }} >
 
         <nav aria-label="secondary mailbox folders">
-          <List>
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemText primary={car.map(car => {
-                  return <p>{car.model_variant}</p>
-                })} />
-              </ListItemButton>
-            </ListItem>
-            <ListItem disablePadding>
-              <ListItemButton >
-                <ListItemText primary={car.map(car => {
-                  return <p>{car.model_variant}</p>
-                })} />
-              </ListItemButton>
-            </ListItem>
-          </List>
+
         </nav>
       </Box>
-
     </div>
+
+
   );
 };
 
