@@ -1,13 +1,14 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 
 
+
 const App = () => {
+
 
   const [cars, setCars] = useState([])
   const getCarData = async () => {
@@ -27,26 +28,27 @@ const App = () => {
 
     <div className="App">
 
+      <List sx={{ width: '100%', maxWidth: 600, bgcolor: 'background.paper' }}>
+        {cars.map((car) => (
 
-      <List>
-        {cars.map((car) => {
-          console.log(car)
-          return (
-            <ListItem disablePadding key={car.vin}>
-              <ListItemButton >
-                <ListItemText primary={car.model_variant} />
-              </ListItemButton>
+          <ListItemButton>
+            <ListItem
+              key={car.vin}
+              disableGutters
+
+              secondaryAction={
+                <ListItemButton >
+                  31
+                </ListItemButton>
+              }
+            >
+              <ListItemText primary={car.model_variant} />
+
             </ListItem>
-          )
-        })}
+          </ListItemButton>
+
+        ))}
       </List>
-      <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }} >
-
-        <nav aria-label="secondary mailbox folders">
-
-        </nav>
-      </Box>
-
     </div>
   );
 };
