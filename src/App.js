@@ -5,16 +5,14 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+
 const App = () => {
+
   const [cars, setCars] = useState([])
-
-
-
   const getCarData = async () => {
     try {
       const data = await axios.get("https://react-challenge-api.azurewebsites.net/vehicles")
-      console.log(data.data);
       setCars(data.data)
     }
     catch (e) {
@@ -22,17 +20,13 @@ const App = () => {
     }
   }
 
-
   useEffect(() => {
     getCarData()
   }, [])
-
-
-
-
   return (
 
     <div className="App">
+
 
       <List>
         {cars.map((car) => {
@@ -46,18 +40,14 @@ const App = () => {
           )
         })}
       </List>
-
-
-
       <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }} >
 
         <nav aria-label="secondary mailbox folders">
 
         </nav>
       </Box>
+
     </div>
-
-
   );
 };
 
