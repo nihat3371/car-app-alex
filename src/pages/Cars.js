@@ -39,7 +39,7 @@ const App = () => {
 
                             secondaryAction={
                                 <ListItemButton >
-                                    <Link to={`/cardetails/${car.vin}`}>details</Link>
+                                    <Link to={`/cars/${car.vin}`}>details</Link>
 
                                 </ListItemButton>
                             }
