@@ -4,6 +4,7 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
+import { Link } from "react-router-dom";
 
 
 
@@ -31,25 +32,27 @@ const App = () => {
       <List sx={{ width: '100%', maxWidth: 600, bgcolor: 'background.paper' }}>
         {cars.map((car) => (
 
-          <ListItemButton>
+          <ListItemButton key={car.vin}>
             <ListItem
               key={car.vin}
               disableGutters
 
               secondaryAction={
                 <ListItemButton >
-                  31
+                  <Link to={`/cardetails/${car.vin}`}>details</Link>
+
                 </ListItemButton>
               }
             >
-              <ListItemText primary={car.model_variant} />
+              <ListItemText key={car.vin} primary={car.model_variant} />
 
             </ListItem>
           </ListItemButton>
 
-        ))}
-      </List>
-    </div>
+        ))
+        }
+      </List >
+    </div >
   );
 };
 

@@ -16,11 +16,12 @@ root.render(
 
   <BrowserRouter>
     <Routes>
+
+      <Route exact path="/" element={<App />} />
+      <Route path="CarDetails" element={<CarDetails />} />
       <Route path="/cars" element={<Cars />}>
         <Route path=":vin" element={<CarDetails />} />
       </Route>
-      <Route exact path="/" element={<App />} />
-      <Route path="CarDetails" element={<CarDetails />} />
       <Route path="Home" element={<Home />} />
       <Route path="DummyComponent" element={<DummyComponent />} />
 
