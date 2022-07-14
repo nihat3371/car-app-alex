@@ -1,6 +1,5 @@
 import React from 'react'
 import { useOutletContext, useParams } from "react-router-dom";
-import logo from '../images/coolcar.jpg'
 
 const CarDetails = () => {
     const { vin } = useParams();
@@ -13,14 +12,7 @@ const CarDetails = () => {
     }
 
     return (
-
-
-
         <>
-            <div>
-                <h1>NO MATTER WHAT U CHOOSE THIS GUY HAS THE COOLEST CAR</h1>
-                <img src={logo} className="logo" alt='' />
-            </div>
             <h1>{car.model_variant}</h1>
             <ul>
                 <li>Body: {car.body_type}</li>
@@ -33,6 +25,5 @@ const CarDetails = () => {
         </>
     );
 };
-
 
 export default CarDetails;
