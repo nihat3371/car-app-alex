@@ -1,29 +1,23 @@
-import React from 'react'
-import { useOutletContext, useParams } from "react-router-dom";
+import React, { useEffect } from 'react'
+import { getUsers } from '../actions';
+import { useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 
 const CarDetails = () => {
-    const { vin } = useParams();
-    const { cars } = useOutletContext();
+    const dispatch = useDispatch();
+    const users = useSelector(state => state.users.users)
 
-    const car = cars.find((car) => car.vin === vin);
 
-    if (!car) {
-        return "No car matches this VIN";
-    }
-
+    useEffect(() => {
+        dispatch(getUsers());
+    }, [])
     return (
         <>
-            <h1>{car.model_variant}</h1>
-            <ul>
-                <li>Body: {car.body_type}</li>
-                <li>Doors: {car.doors}</li>
-                <li>Fuel: {car.fuel_type}</li>
-                <li>VIN: {car.vin}</li>
-                <li>Registration #: {car.regno}</li>
-                <li>Transmission: {car.transmission_type}</li>
-            </ul>
+            <h1>saf</h1>
+            {users.map(user => <h1>{user.vin}</h1>)}
+
         </>
-    );
+    )
 };
 
 export default CarDetails;
