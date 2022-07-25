@@ -12,6 +12,24 @@ const Cars = () => {
         dispatch(getUsers());
     }, []);
 
+    return (<List sx={{ width: "100%", maxWidth: 600, bgcolor: "background.paper" }}>
+        {cars.map((car) => (
+            <ListItemButton key={cars.vin}>
+                <ListItem
+                    key={cars.vin}
+                    disableGutters
+                    secondaryAction={
+                        <ListItemButton>
+                            <Link to={`/cars/${car.vin}`}>details</Link>
+                        </ListItemButton>
+                    }
+                >
+                    <ListItemText key={car.vin} primary={car.model_variant} />
+                </ListItem>
+            </ListItemButton>
+        ))}
+    </List>);
+
 
 };
 

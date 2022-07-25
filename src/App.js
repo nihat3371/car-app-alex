@@ -1,8 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const App = () => {
   return (
-    <div>Home</div>
+    <div> <Link to={`/cars`}>Hi!, you can acces to our cars collection from here</Link></div>
   )
 }
 

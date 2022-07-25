@@ -4,7 +4,6 @@ import "./index.css";
 import App from "./App";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Cars from "./pages/Cars";
-import CarList from "./pages/CarList";
 import CarDetails from "./pages/CarDetails";
 import { Provider } from "react-redux";
 import reducers from "./reducers";
@@ -35,7 +34,6 @@ root.render(
       <Routes>
         <Route exact path='/' element={<App />} />
         <Route path="/cars" element={<Cars />}>
-          <Route path="list" element={<CarList />} />
           <Route path=":vin" element={<CarDetails />} />
         </Route>
       </Routes>
