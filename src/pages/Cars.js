@@ -1,27 +1,18 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { Outlet } from "react-router-dom";
-
+import React, { useEffect } from "react";
+import { getUsers } from '../actions';
+import { useSelector, useDispatch } from 'react-redux';
+import { List, ListItem, ListItemButton, ListItemText } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const Cars = () => {
-    const [cars, setCars] = useState([]);
-
-    const getCarData = async () => {
-        try {
-            const data = await axios.get(
-                "https://react-challenge-api.azurewebsites.net/vehicles"
-            );
-            setCars(data.data);
-        } catch (e) {
-            console.log(e);
-        }
-    };
+    const cars = useSelector((state) => state.users.users);
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        getCarData();
+        dispatch(getUsers());
     }, []);
 
-    return <Outlet context={{ cars }} />;
+
 };
 
 export default Cars;

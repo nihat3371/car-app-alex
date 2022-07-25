@@ -1,25 +1,34 @@
 import { List, ListItem, ListItemButton, ListItemText } from "@mui/material";
-import { Link, useOutletContext } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { getUsers } from "../actions";
 
 
 
 const CarList = () => {
-    const { cars } = useOutletContext();
+    const dispatch = useDispatch();
+    const users = useSelector(state => state.users.users)
+
+
+    useEffect(() => {
+        dispatch(getUsers());
+    }, [])
 
     return (
         <List sx={{ width: "100%", maxWidth: 600, bgcolor: "background.paper" }}>
-            {cars.map((car) => (
-                <ListItemButton key={car.vin}>
+            {users.map((car) => (
+                <ListItemButton key={users.vin}>
                     <ListItem
-                        key={car.vin}
+                        key={users.vin}
                         disableGutters
                         secondaryAction={
                             <ListItemButton>
-                                <Link to={`/cars/${car.vin}`}>details</Link>
+                                <Link to={`/cars/${users.vin}`}>details</Link>
                             </ListItemButton>
                         }
                     >
-                        <ListItemText key={car.vin} primary={car.model_variant} />
+                        <ListItemText key={car.vin} primary={users.model_variant} />
                     </ListItem>
                 </ListItemButton>
             ))}

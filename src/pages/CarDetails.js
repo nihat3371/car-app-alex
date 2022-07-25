@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { getUsers } from '../actions';
-import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 const CarDetails = () => {
