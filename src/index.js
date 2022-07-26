@@ -32,10 +32,12 @@ root.render(
   <Provider store={store}>
     <BrowserRouter>
       <Routes>
-        <Route exact path='/' element={<App />} />
+
+        <Route path='/' element={<App />} />
         <Route path="/cars" element={<Cars />}>
           <Route path=":vin" element={<CarDetails />} />
         </Route>
+
       </Routes>
     </BrowserRouter>
   </Provider>

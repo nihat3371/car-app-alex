@@ -1,20 +1,22 @@
-import React, { useEffect } from 'react'
-import { getUsers } from '../actions';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react'
+import { useSelector } from 'react-redux';
+
 
 const CarDetails = () => {
-    const dispatch = useDispatch();
-    const users = useSelector(state => state.users.users)
 
 
-    useEffect(() => {
-        dispatch(getUsers());
-    }, [])
+    const cars = useSelector((state) => state.users.users);
     return (
         <>
-            <h1>saf</h1>
-            {users.map(user => <h1>{user.vin}</h1>)}
-
+            <h1>{cars.model_variant}</h1>
+            <ul>
+                <li>Body: {cars.body_type}</li>
+                <li>Doors: {cars.doors}</li>
+                <li>Fuel: {cars.fuel_type}</li>
+                <li>VIN: {cars.vin}</li>
+                <li>Registration #: {cars.regno}</li>
+                <li>Transmission: {cars.transmission_type}</li>
+            </ul>
         </>
     )
 };
