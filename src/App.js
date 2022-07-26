@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const App = () => {
   return (
-    <div> <Link to={`/cars`}>Hi!, you can acces to our cars collection from here</Link></div>
+    <div> <Link to={`/cars/list`}>Hi!, you can acces to our cars collection from here</Link></div>
   )
 }
 

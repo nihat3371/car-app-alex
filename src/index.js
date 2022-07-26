@@ -32,7 +32,7 @@ root.render(
   <Provider store={store}>
     <BrowserRouter>
       <Routes>
-
+        <Route path="/" element={<App />} />
         <Route path="/cars" element={<Outlet />} >
           <Route path="list" element={<Cars />} />
           <Route path=":vin" element={<CarDetails />} />
