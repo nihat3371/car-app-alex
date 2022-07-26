@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import Cars from "./pages/Cars";
 import CarDetails from "./pages/CarDetails";
 import { Provider } from "react-redux";
@@ -33,10 +33,11 @@ root.render(
     <BrowserRouter>
       <Routes>
 
-        <Route path='/' element={<App />} />
-        <Route path="/cars" element={<Cars />}>
+        <Route path="/cars" element={<Outlet />} >
+          <Route path="list" element={<Cars />} />
           <Route path=":vin" element={<CarDetails />} />
         </Route>
+
 
       </Routes>
     </BrowserRouter>

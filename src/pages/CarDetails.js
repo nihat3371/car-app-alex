@@ -1,11 +1,19 @@
-import React from 'react'
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { getUsers } from '../actions';
 
 
 const CarDetails = () => {
 
 
     const cars = useSelector((state) => state.users.users);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getUsers());
+    }, []);
+
+
     return (
         <>
             <h1>{cars.model_variant}</h1>
