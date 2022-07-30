@@ -5,7 +5,7 @@ const url = "https://react-challenge-api.azurewebsites.net/vehicles";
 const fetchGetUsers = async () => {
     try {
         const response = await axios.get(url);
-        return response
+        return Promise.resolve(response.data)
     }
     catch (error) {
         console.log(error);
@@ -15,6 +15,4 @@ const fetchGetUsers = async () => {
 
 
 
-export default fetchGetUsers();
-
-
+export default fetchGetUsers;

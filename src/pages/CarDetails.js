@@ -1,18 +1,12 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getUsers } from '../actions';
 import { TableContainer, Table, TableHead, TableRow, TableCell, Paper, TableBody } from '@mui/material';;
-
 const CarDetails = () => {
 
     let params = useParams();
     const cars = useSelector((state) => state.users.users);
-    const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(getUsers());
-    }, []);
+
 
     const car = cars.find((car) => car.vin === params.vin);
 
